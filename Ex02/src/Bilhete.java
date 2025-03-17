@@ -14,7 +14,7 @@ public class Bilhete {
 
     private int gerarNumero() {
         Random rd = new Random();
-        return rd.nextInt(1000, 10000);
+        return rd.nextInt(10000);
     }
 
     public void adicionarSaldo(double valor) {
@@ -37,5 +37,14 @@ public class Bilhete {
         if (saldo > debito) {
             saldo -= debito;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Bilhete{" +
+                "numero=" + numero +
+                ", usuario=" + usuario +
+                ", saldo=" + saldo +
+                '}';
     }
 }

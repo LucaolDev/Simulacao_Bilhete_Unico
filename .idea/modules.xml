@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ex02/Ex02.iml" filepath="$PROJECT_DIR$/Ex02/Ex02.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Simulacao_Bilhete_Unico.iml" filepath="$PROJECT_DIR$/.idea/Simulacao_Bilhete_Unico.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simulador/simulador.iml" filepath="$PROJECT_DIR$/simulador/simulador.iml" />
     </modules>
   </component>
 </project>
