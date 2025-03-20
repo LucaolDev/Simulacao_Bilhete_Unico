@@ -1,13 +1,13 @@
 import java.util.Random;
 
-public class Bilhete {
+public class BilheteUnico{
     static final double VALOR_PASSAGEM = 5.20;
 
     private int numero;
     private Usuario usuario;
     private double saldo;
 
-    public Bilhete(Usuario usuario) {
+    public BilheteUnico(Usuario usuario) {
         this.usuario = usuario;
         numero = gerarNumero();
     }

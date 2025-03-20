@@ -1,19 +1,19 @@
 public class Teste3 {
     public static void main(String[] args) {
 
-        Bilhete[] bilhete = new Bilhete[3];
+        BilheteUnico[] bilhete = new BilheteUnico[3];
 
         //primeiro bilhete
         Usuario u1 = new Usuario("Luis", 1234, "estudante");
-        bilhete[0] = new Bilhete(u1);
+        bilhete[0] = new BilheteUnico(u1);
 
         //segundo bilhete
-        bilhete[1] = new Bilhete(new Usuario("robson", 5678, "professor"));
+        bilhete[1] = new BilheteUnico(new Usuario("robson", 5678, "professor"));
 
         //terceiro bilhete
-        bilhete[2] = new Bilhete(new Usuario("sla", 8743, "especial"));
+        bilhete[2] = new BilheteUnico(new Usuario("sla", 8743, "especial"));
 
-        for(Bilhete b : bilhete){
+        for(BilheteUnico b : bilhete){
             System.out.println(b);
         }
     }
