@@ -1,50 +1,44 @@
 import java.util.Random;
 
-public class BilheteUnico{
-    static final double VALOR_PASSAGEM = 5.20;
-
-    private int numero;
-    private Usuario usuario;
-    private double saldo;
+public class BilheteUnico {
+    static final double TARIFABASE = 5.20;
+    int numero;
+    double saldo;
+    Usuario usuario;
 
     public BilheteUnico(Usuario usuario) {
-        this.usuario = usuario;
         numero = gerarNumero();
+        this.usuario = usuario;
     }
 
     private int gerarNumero() {
-        Random rd = new Random();
-        return rd.nextInt(10000);
+        Random random = new Random();
+        return random.nextInt(1000, 10000);
     }
 
-    public void adicionarSaldo(double valor) {
+    // método para carregar o bilhete
+    public void carregar(double valor) {
         saldo += valor;
-        System.out.println(String.format("%.2f", saldo) + "$ de saldo adicionado");
     }
 
-    public void checarSaldo() {
-        System.out.println("Saldo: " + String.format("%.2f", saldo));
+    // método para consultar o saldo
+    public double consultarSaldo() {
+        return saldo;
     }
 
-    public void passaCatraca() {
-        double debito = VALOR_PASSAGEM;
-
-        if (usuario.getTipoUsuario().equalsIgnoreCase("normal")) {
-            debito = VALOR_PASSAGEM;
-        } else {
-            debito = VALOR_PASSAGEM / 2;
+    // método para passar na catraca
+    public void passarNaCatraca() {
+        double debito;
+        if(usuario.tipoTarifa.equalsIgnoreCase("tarifa")) {
+            debito = TARIFABASE;
         }
-        if (saldo > debito) {
+        else {
+            debito = TARIFABASE / 2;
+        }
+
+        if(saldo >= debito) {
             saldo -= debito;
         }
     }
 
-    @Override
-    public String toString() {
-        return "Bilhete{" +
-                "numero=" + numero +
-                ", usuario=" + usuario +
-                ", saldo=" + saldo +
-                '}';
-    }
 }
