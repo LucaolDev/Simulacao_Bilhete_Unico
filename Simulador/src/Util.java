@@ -78,17 +78,6 @@ public class Util {
         }
     }
 
-    private int pesquisar(){
-        long cpf = parseInt(showInputDialog("CPF"));
-        for (int i = 0; i < index; i++) {
-            if(bilhete[i].usuario.cpf == cpf){
-                return i;
-            }
-        }
-        showMessageDialog(null, cpf + " não encontrado");
-        return -1;
-    }
-
     private void menuAdministrador() {
         int opcao;
         String menuAdmin = "1. Emitir bilhete\n";
@@ -109,9 +98,24 @@ public class Util {
                     case 2:
                         listarBilhetes();
                         break;
+                    case 3:
+                        removerBilhete();
+                        break;
                 }
             }
         } while(opcao != 4);
+    }
+
+    private void removerBilhete() {
+        int posicao = pesquisar();
+        int resposta;
+        if(posicao != -1){
+            resposta = showConfirmDialog(null, "Tem certeza que deseja remover? ");
+            if(resposta == YES_OPTION){
+                bilhete[posicao] = bilhete[index-1];
+                index--;
+            }
+        }
     }
 
     private void listarBilhetes(){
@@ -139,5 +143,16 @@ public class Util {
             bilhete[index] = new BilheteUnico(new Usuario(nome, cpf, perfil));
             index++;
         }
+    }
+
+    private int pesquisar(){
+        long cpf = parseInt(showInputDialog("CPF"));
+        for (int i = 0; i < index; i++) {
+            if(bilhete[i].usuario.cpf == cpf){
+                return i;
+            }
+        }
+        showMessageDialog(null, cpf + " não encontrado");
+        return -1;
     }
 }
