@@ -34,7 +34,7 @@ public class Util {
 
     private void menuUsuario() {
         int opcao;
-        String menu = "1. Colsutar bilhete\n2. Carregar bilhete\3. Passar na catraca\n4. Sair";
+        String menu = "1. Colsutar bilhete\n2. Carregar bilhete\n3. Passar na catraca\n4. Sair";
         do{
             opcao = parseInt(showInputDialog(menu));
             if(opcao < 1 || opcao > 4){
